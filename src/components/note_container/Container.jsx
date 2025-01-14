@@ -2,67 +2,14 @@ import React from "react";
 import Note from "../note/note";
 import "./container.css";
 
-function Container() {
+function Container(props) {
   return (
-    <div className="notes-container custom-scroll">
+    <div className="notes-container">
       <h1>Notes</h1>
-      <div className="notes">
-        <Note
-          data={{
-            text: "this is a text",
-            color: "blueviolet",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "aqua",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "yellowgreen",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "blueviolet",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "blueviolet",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "blueviolet",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "blueviolet",
-            date: "14th Jan 2024",
-          }}
-        />
-        <Note
-          data={{
-            text: "this is a text",
-            color: "blueviolet",
-            date: "14th Jan 2024",
-          }}
-        />
+      <div className="notes custom-scroll">
+        {props.notes.map((item, key) => (
+          <Note data={item} key={key} />
+        ))}
       </div>
     </div>
   );
