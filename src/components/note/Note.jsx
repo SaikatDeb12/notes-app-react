@@ -1,10 +1,10 @@
 import React from "react";
 import "./note.css";
-function Note() {
+function Note(props) {
   return (
-    <div className="notes">
-      <textarea className="notes-text"></textarea>
-      <p className="notes-date">14th Jan 2024</p>
+    <div className="indi-notes" style={{ backgroundColor: props.data.color }}>
+      <textarea className="notes-text" defaultValue={props.data.text} />
+      <p className="notes-date">{props.data.date}</p>
     </div>
   );
 }

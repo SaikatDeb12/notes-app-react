@@ -4,22 +4,20 @@
   box-sizing: border-box;
 }
 
-.notes {
-  padding: 20px;
+.indi-notes {
   height: 200px;
   width: 200px;
-  border: 1px solid black;
-  background-color: blueviolet;
   border-radius: 20px;
+  padding: 10px;
   margin: 5px;
 }
 
 .notes-text {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  height: 80%;
   width: 100%;
-}
-
-.notes-date {
+  background-color: transparent;
+  color: white;
+  border: transparent;
+  outline: none;
+  resize: none;
 }
