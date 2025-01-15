@@ -10,17 +10,12 @@ function App() {
       time: "3:12AM",
       color: "cyan",
     },
-    {
-      text: "this is a text",
-      time: "3:12AM",
-      color: "cyan",
-    },
-    {
-      text: "this is a text",
-      time: "3:12AM",
-      color: "cyan",
-    },
   ];
+
+  const addNotes = () => {
+    const tempNote = [...notes];
+    tempNote.push();
+  };
 
   return (
     <div className="App">

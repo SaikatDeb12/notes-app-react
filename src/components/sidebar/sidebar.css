@@ -5,4 +5,22 @@
 
 .sidebar {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar-list-items {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+}
+
+.sidebar-list {
+  padding: 10px;
+}
+
+.sidebar-list li {
+  margin: 10px;
+  list-style-type: none;
 }

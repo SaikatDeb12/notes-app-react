@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -6,16 +6,31 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 function Sidebar() {
   const color = ["#fe9b72", "#fec971", "#00d4fe", "#b693fd", "#e4ee91"];
 
+  const [displayList, toggle] = useState(true);
+
   return (
     <div className="sidebar">
-      <FontAwesomeIcon icon={faPlus} />
+      <FontAwesomeIcon
+        icon={faPlus}
+        onClick={() => {
+          toggle(!displayList);
+          // console.log("changed");
+        }}
+      />
       <ul className="sidebar-list">
         {color.map((item, key) => {
-          <li
-            key={key}
-            className="sidebar-list-items"
-            style={{ backgroundColor: item }}
-          ></li>;
+          return (
+            displayList && (
+              <li
+                key={key}
+                className="sidebar-list-items"
+                style={{ backgroundColor: item }}
+                onClick={() => {
+                  //to add new note
+                }}
+              ></li>
+            )
+          );
         })}
       </ul>
     </div>
