@@ -1,35 +1,35 @@
 import React, { useState } from "react";
 import "./sidebar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoMdAddCircleOutline } from "react-icons/io";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-function Sidebar() {
+function Sidebar(props) {
   const color = ["#fe9b72", "#fec971", "#00d4fe", "#b693fd", "#e4ee91"];
 
   const [displayList, toggle] = useState(true);
 
   return (
     <div className="sidebar">
-      <FontAwesomeIcon
+      <IoMdAddCircleOutline
         icon={faPlus}
         onClick={() => {
           toggle(!displayList);
-          // console.log("changed");
         }}
       />
-      <ul className="sidebar-list">
+      <ul
+        className={` ${displayList ? "sidebar-list-active" : "sidebar-list"}`}
+      >
         {color.map((item, key) => {
           return (
-            displayList && (
-              <li
-                key={key}
-                className="sidebar-list-items"
-                style={{ backgroundColor: item }}
-                onClick={() => {
-                  //to add new note
-                }}
-              ></li>
-            )
+            <li
+              key={key}
+              className="sidebar-list-items"
+              style={{ backgroundColor: item }}
+              onClick={() => {
+                return props.addNotes(item);
+              }}
+            ></li>
           );
         })}
       </ul>

@@ -4,22 +4,21 @@ import Container from "./components/note_container/Container";
 import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
-  const notes = [
-    {
-      text: "this is a text",
-      time: "3:12AM",
-      color: "cyan",
-    },
-  ];
-
-  const addNotes = () => {
+  const [notes, setNotes] = useState([]);
+  const d = new Date();
+  const addNotes = (color) => {
     const tempNote = [...notes];
-    tempNote.push();
+    tempNote.push({
+      text: "",
+      date: Date.now(),
+      color: color,
+    });
+    setNotes(tempNote);
   };
 
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar addNotes={addNotes} />
       <Container notes={notes} />
     </div>
   );
