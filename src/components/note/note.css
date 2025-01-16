@@ -17,8 +17,20 @@
   height: 80%;
   width: 100%;
   background-color: transparent;
+  padding-top: 10px;
   color: white;
   border: transparent;
   outline: none;
   resize: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  font-size: small;
+}
+
+.deleteIcon {
+  font-size: 20px;
 }
