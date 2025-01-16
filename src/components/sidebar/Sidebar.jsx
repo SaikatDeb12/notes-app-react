@@ -7,7 +7,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 function Sidebar(props) {
   const color = ["#fe9b72", "#fec971", "#00d4fe", "#b693fd", "#e4ee91"];
 
-  const [displayList, toggle] = useState(true);
+  const [displayList, toggle] = useState(false);
 
   return (
     <div className="sidebar">
@@ -17,14 +17,14 @@ function Sidebar(props) {
           toggle(!displayList);
         }}
       />
-      <ul
-        className={` ${displayList ? "sidebar-list-active" : "sidebar-list"}`}
-      >
+      <ul className={`sidebar-list`}>
         {color.map((item, key) => {
           return (
             <li
               key={key}
-              className="sidebar-list-items"
+              className={`${
+                displayList ? "sidebar-list-items_active" : "sidebar-list-items"
+              }`}
               style={{ backgroundColor: item }}
               onClick={() => {
                 return props.addNotes(item);
