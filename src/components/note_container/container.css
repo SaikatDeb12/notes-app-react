@@ -8,7 +8,7 @@
   font-size: 40px;
 }
 
-.notes {
+.notesList {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
