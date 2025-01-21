@@ -4,5 +4,10 @@
 }
 
 .sidebar {
-  padding: 10px;
+  padding: 20px;
+  /* border: 1px solid black; */
+}
+
+.addIcon {
+  font-size: 40px;
 }
