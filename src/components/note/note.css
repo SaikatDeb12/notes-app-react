@@ -18,7 +18,7 @@
   width: 100%;
   background-color: transparent;
   padding-top: 10px;
-  color: white;
+  color: black;
   border: transparent;
   outline: none;
   resize: none;
@@ -32,5 +32,10 @@
 }
 
 .deleteIcon {
+  display: none;
+}
+
+.indi-notes:hover .deleteIcon {
+  display: block;
   font-size: 20px;
 }

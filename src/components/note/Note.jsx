@@ -3,7 +3,7 @@ import "./note.css";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 
-function Note(props) {
+function Note(data, index, updatedNotes) {
   const dateFormat = (value) => {
     if (!value) return "";
     const date = new Date(value);
@@ -35,11 +35,20 @@ function Note(props) {
     return `${hrs}:${min} ${amPm} ${day} ${month}`;
   };
 
+  const handleOnChange = (event) => {
+    // console.log(event.target.value);
+    updatedNotes(index, event.target.value);
+  };
+
   return (
-    <div className="indi-notes" style={{ backgroundColor: props.data.color }}>
-      <textarea className="notes-text" defaultValue={props.data.text} />
+    <div className="indi-notes" style={{ backgroundColor: data.color }}>
+      <textarea
+        className="notes-text"
+        onChange={handleOnChange}
+        defaultValue={data.text}
+      />
       <div className="footer">
-        <p className="notes-date">{dateFormat(props.data.date)}</p>
+        <p className="notes-date">{dateFormat(data.date)}</p>
         <MdDelete className="deleteIcon" />
       </div>
     </div>
