@@ -1,10 +1,15 @@
 import React from "react";
 import "./note.css";
-function Note(props) {
+import { MdDelete } from "react-icons/md";
+
+function Note({ data }) {
   return (
-    <div className="indi-notes" style={{ backgroundColor: props.data.color }}>
-      <textarea className="notes-text" defaultValue={props.data.text} />
-      <p className="notes-date">{props.data.date}</p>
+    <div className="indi-notes" style={{ backgroundColor: data.color }}>
+      <textarea className="notes-text" defaultValue={data.text} />
+      <div className="footer">
+        <p className="notes-date">{data.date}</p>
+        <MdDelete className="deleteIcon" />
+      </div>
     </div>
   );
 }

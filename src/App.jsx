@@ -4,17 +4,16 @@ import Container from "./components/note_container/Container";
 import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      text: "",
-      date: "12th Aug 2020",
-      color: "blueviolet",
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
 
   const addNote = (color) => {
     const tempNote = [...notes];
-    tempNote.push({ text: "", date: "24th Dec 1990", color: color });
+    tempNote.push({
+      id: notes.length + 1,
+      text: "",
+      date: "24th Dec 2345",
+      color: color,
+    });
     setNotes(tempNote);
   };
 
