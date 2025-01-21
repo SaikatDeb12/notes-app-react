@@ -1,29 +1,37 @@
 import React, { useState } from "react";
 import "./sidebar.css";
-import { IoMdAddCircle } from "react-icons/io";
-function Sidebar({ addNote }) {
-  const colors = ["#fe9b72", "#fec971", "#00d4fe", "#b693fd", "#e4ee91"];
-  const [display, setDisplay] = useState(false);
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
+function Sidebar({ addNotes }) {
+  const color = ["#fe9b72", "#fec971", "#00d4fe", "#b693fd", "#e4ee91"];
+
+  const [displayList, toggle] = useState(false);
+
+  const handleAddNote = (color) => {
+    addNotes(color, ""); //default value
+  };
 
   return (
     <div className="sidebar">
-      <IoMdAddCircle
-        className="addIcon"
+      <IoMdAddCircleOutline
+        icon={faPlus}
         onClick={() => {
-          setDisplay(!display);
+          toggle(!displayList);
         }}
       />
-      <ul className="colors-list">
-        {colors.map((item, id) => {
+      <ul className={`sidebar-list`}>
+        {color.map((item, key) => {
           return (
             <li
-              className={`${display && "color_active"}`}
-              key={id}
+              key={key}
+              className={`${
+                displayList ? "sidebar-list-items_active" : "sidebar-list-items"
+              }`}
               style={{ backgroundColor: item }}
-              onClick={() => {
-                addNote(item);
-              }}
-            />
+              onClick={() => handleAddNote(item)}
+            ></li>
           );
         })}
       </ul>

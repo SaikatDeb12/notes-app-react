@@ -2,13 +2,24 @@ import React from "react";
 import Note from "../note/note";
 import "./container.css";
 
-function Container({ notes }) {
+function Container({ notes, updatedNotes }) {
+  const reverseNote = (arr) => {
+    const temp = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+      temp.push(arr[i]);
+    }
+
+    return temp;
+  };
+
+  const newNotes = reverseNote(notes);
+  // console.log(notes, newNotes);
   return (
-    <div className="notes-container custom-scroll">
+    <div className="notes-container">
       <h1>Notes</h1>
-      <div className="notesList">
-        {notes.map((item, id) => (
-          <Note data={item} key={id} />
+      <div className="notes custom-scroll">
+        {newNotes.map((item, index) => (
+          <Note data={item} key={index} updatedNotes={updatedNotes} />
         ))}
       </div>
     </div>

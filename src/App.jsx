@@ -1,27 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Container from "./components/note_container/Container";
 import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      text: "",
-      date: "12th Aug 2020",
-      color: "blueviolet",
-    },
-  ]);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes-app")) || []
+  );
 
-  const addNote = (color) => {
+  useEffect(() => {
+    localStorage.setItem("notes-app", JSON.stringify(notes));
+  }, [notes]);
+
+  const addNotes = (color, value) => {
     const tempNote = [...notes];
-    tempNote.push({ text: "", date: "24th Dec 1990", color: color });
+    tempNote.push({
+      text: value,
+      date: Date.now(),
+      color: color,
+    });
     setNotes(tempNote);
   };
 
+  // const updateNoteText = (index, text) => {
+  //   const updatedText = [...notes];
+  //   updatedText[index].text = text;
+  //   setNotes(updatedText);
+  // };
+
   return (
     <div className="App">
-      <Sidebar addNote={addNote} />
-      <Container notes={notes} />
+      <Sidebar addNotes={addNotes} />
+      <Container notes={notes} updatedNotes={updateNoteText} />
     </div>
   );
 }
