@@ -1,5 +1,5 @@
 import React from "react";
-import Note from "../note/note";
+import Note from "../note/Note.jsx";
 import "./container.css";
 
 function Container({ notes, deleteNote, updateNotes }) {

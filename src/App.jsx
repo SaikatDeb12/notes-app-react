@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Container from "./components/note_container/Container";
-import Sidebar from "./components/sidebar/Sidebar";
+import Container from "./components/note_container/Container.jsx";
+import Sidebar from "./components/sidebar/Sidebar.jsx";
 
 function App() {
   const [notes, setNotes] = useState(
