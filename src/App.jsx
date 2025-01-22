@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Container from "./components/note_container/Container";
 import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes-app")) || []
+  );
   const toMonths = (digit) => {
     const months = {
       1: "Jan",
@@ -54,10 +56,20 @@ function App() {
     setNotes(tempNotes);
   };
 
+  const updateText = () => {};
+
+  useEffect(() => {
+    localStorage.setItem("notes-app", JSON.stringify(notes));
+  }, [notes]);
+
   return (
     <div className="App">
       <Sidebar addNote={addNote} />
-      <Container notes={notes} deleteNote={deleteNote} />
+      <Container
+        notes={notes}
+        deleteNote={deleteNote}
+        updateText={updateText}
+      />
     </div>
   );
 }
