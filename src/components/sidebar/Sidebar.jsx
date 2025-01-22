@@ -4,7 +4,7 @@ import { IoMdAddCircle } from "react-icons/io";
 
 function Sidebar({ addNote }) {
   const colors = ["#fe9b72", "#fec971", "#00d4fe", "#b693fd", "#e4ee91"];
-  const [display, setDisplay] = useState(false);
+  const [display, setDisplay] = useState(true);
   return (
     <div className="sidebar">
       <IoMdAddCircle
@@ -23,6 +23,7 @@ function Sidebar({ addNote }) {
               onClick={() => {
                 //child to parent
                 addNote(item);
+                setDisplay(!display);
               }}
             />
           );
