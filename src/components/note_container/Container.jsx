@@ -2,7 +2,7 @@ import React from "react";
 import Note from "../note/note";
 import "./container.css";
 
-function Container({ notes }) {
+function Container({ notes, deleteNote }) {
   const reverseNotes = (arr) => {
     const temp = [];
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -21,7 +21,7 @@ function Container({ notes }) {
           ? "No notes to show"
           : newNotes.map((item) => (
               //each note getting unique key.. from (notes.id)
-              <Note data={item} key={item.id} />
+              <Note data={item} key={item.id} deleteNote={deleteNote} />
             ))}
       </div>
     </div>
