@@ -56,7 +56,14 @@ function App() {
     setNotes(tempNotes);
   };
 
-  const updateText = () => {};
+  const updateText = (text, id) => {
+    const tempNotes = [...notes];
+    const ind = tempNotes.findIndex((ele) => ele.id == id);
+    if (ind < 0) return;
+    console.log(text);
+    tempNotes[ind].text = text;
+    setNotes(tempNotes);
+  };
 
   useEffect(() => {
     localStorage.setItem("notes-app", JSON.stringify(notes));
@@ -68,7 +75,7 @@ function App() {
       <Container
         notes={notes}
         deleteNote={deleteNote}
-        updateText={updateText}
+        updateNotes={updateText}
       />
     </div>
   );
