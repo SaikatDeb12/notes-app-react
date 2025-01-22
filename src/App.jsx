@@ -5,13 +5,42 @@ import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const toMonths = (digit) => {
+    const months = {
+      1: "Jan",
+      2: "Feb",
+      3: "Mar",
+      4: "Apr",
+      5: "May",
+      6: "Jun",
+      7: "July",
+      8: "Aug",
+      9: "Sep",
+      10: "Oct",
+      11: "Nov",
+      12: "Dec",
+    };
+    return months[digit];
+  };
+
+  const addDate = () => {
+    let obj = new Date();
+    let time = obj.toLocaleString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    let date = obj.getDate();
+    let month = toMonths(obj.getMonth() + 1);
+
+    return `${date} ${month} ${time}`;
+  };
 
   const addNote = (color) => {
     const tempNote = [...notes];
     tempNote.push({
       id: notes.length,
       text: "",
-      date: "24th Dec 2345",
+      date: addDate(),
       color: color,
     });
     setNotes(tempNote);
